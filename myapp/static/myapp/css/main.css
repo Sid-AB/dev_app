@@ -56,6 +56,12 @@ body {
   {
     scale: 1.2;
   }
+  .td-edit
+  {
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 5px
+  }
   th:after {
     background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
     content: '';
