@@ -145,64 +145,98 @@
       </div>
   </form>
   {% endif %}
+  <hr>
+  <div class="search-box">
+    <button class="btn-search"><i class="fas fa-search"></i></button>
+    <input id="searchInput" type="text" class="input-search" placeholder="Rerchecher ...">
+  </div>
+
   <div>
-    <table>
+    <table id="proj-table">
         <thead>
-          <tr >
+          <tr>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                   N°
                 </span> 
-                <i class="fas fa-filter"></i>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
               </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                   Libellé de l'opération 
                 </span> 
-                <i class="fas fa-filter"></i>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
               </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                   N° d'individualisation
                 </span> 
-                <i class="fas fa-filter"></i>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
               </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                   AP Actuelle (KDA)
                 </span> 
-                <i class="fas fa-filter"></i>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
               </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                   Dépenses cumulées au type date
                 </span> 
-                <i class="fas fa-filter"></i>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
               </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                   PEC au type date
                 </span> 
-                <i class="fas fa-filter"></i>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
               </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                   Dépenses prévisionnelles pour type date
                 </span> 
-                <i class="fas fa-filter"></i>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
               </div>
             </th>
           </tr>
@@ -303,9 +337,9 @@
         </tbody>
         <tfoot>
           <tr class="click-row">
-            <th colspan="5">pour les calcul</th>
+            <th colspan="4">pour les calcul</th>
             <th>$667.90</th>
-            <th colspan="5">pour les calcul</th>
+            <th colspan="1">pour les calcul</th>
             <th>$667.90</th>
           </tr>
         </tfoot>
@@ -330,5 +364,64 @@
       });
   });
 });
+
+$(document).ready(function(){
+	function sortTable(table, col, reverse) {
+    var rows = table.find('tbody > tr').get();
+
+    rows.sort(function(a, b) {
+      var A = $(a).children('td').eq(col).text().toUpperCase();
+      var B = $(b).children('td').eq(col).text().toUpperCase();
+
+      if($.isNumeric(A) && $.isNumeric(B)) {
+        return reverse ? B - A : A - B;
+      } else {
+        return (A < B ? -1 : (A > B ? 1 : 0)) * (reverse ? -1 : 1);
+      }
+    });
+
+    $.each(rows, function(index, row) {
+      table.children('tbody').append(row);
+    });
+  }
+
+  // Click event to sort the table when header is clicked
+  $('#proj-table th div i').on('click', function() {
+    var head=$(this).parent().parent()
+    var table = head.parents('table').eq(0);
+    var index = head.index();
+    var reverse = head.hasClass('asc');
+    
+    sortTable(table, index, reverse);
+    
+    // Toggle the class for next click
+    $('#proj-table th').removeClass('asc desc');
+    head.addClass(reverse ? 'desc' : 'asc');
+  }); 
+})
+$(document).ready(function(){
+  // Filter table rows based on search input
+  $("#searchInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#proj-table tbody tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
+  // Get all visible rows
+  $("#getVisibleRows").on("click", function() {
+    var visibleRows = $("#proj-table tbody tr:visible");
+
+    // Example: Log all visible rows to the console
+    visibleRows.each(function() {
+      var rowText = $(this).text();
+      console.log(rowText);
+    });
+
+    // Example: Display the count of visible rows
+    alert("Number of visible rows: " + visibleRows.length);
+  });
+});
+
   </script>
 </html>

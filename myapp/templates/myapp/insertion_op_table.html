@@ -23,7 +23,7 @@
       </div>
     </div>
   <div class="form-aria">
-    <form  method="POST" action="{% url 'app_view' id_projet%}">
+    <form  method="POST" action="{% url 'add_op' id_projet%}">
       {% csrf_token %}
       <div class="formbold-form-step-1 active">
         <div class="formbold-input-flex">
@@ -155,141 +155,164 @@
         </button>
       </div>
   </form>
+  <hr>
+  <div class="search-box">
+    <button class="btn-search"><i class="fas fa-search"></i></button>
+    <input id="searchInput" type="text" class="input-search" placeholder="Rerchecher ...">
+  </div>
+  <!--button id="getVisibleRows">Get Visible Rows</button-->
   <div>
     <table id="opr-table">
         <thead>
           <tr>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                   N°
                 </span> 
-                <i class="fas fa-filter"></i>
-                <span id="order">
-                &;np
-                </span>
-              </div>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
+                              </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                   Numero et Libellé d'indidualisation de l'operation
-                </span> 
-                <i class="fas fa-filter"></i>
-                <span id="order">
-                &;np
                 </span>
-              </div>
+                <div>
+                  <!--i class="fas fas-filter"></i-->
+                </div>
+                
+                  <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
+                
+                </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span id="order">
+              <div class="th-info">
+                <span>
                   Objectif vise de L'Operation
                 </span> 
-                <i class="fas fa-filter"></i>
-                <span id="order">
-                &;np
-                </span>
-              </div>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
+                              </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span id="order">
+              <div class="th-info">
+                <span>
                   Annee de Notification par le M F
                 </span> 
-                <i class="fas fa-filter"></i>
-                <span id="order">
-                &;np
-                </span>
-              </div>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
+                              </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                   Annee d'individualisation
                 </span> 
-                <i class="fas fa-filter"></i>
-                <span id="order">
-                &;np
-                </span>
-              </div>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
+                              </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                   A.P initiale
                 </span> 
-                <i class="fas fa-filter"></i>
-                <span id="order">
-                &;np
-                </span>
-              </div>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
+                              </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                   A.P actuelle
                 </span> 
-                <i class="fas fa-filter"></i>
-                <span id="order">
-                &;np
-                </span>
-              </div>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
+                              </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                   Cumul des A P engageés au 30-09-2023
                 </span> 
-                <i class="fas fa-filter"></i>
-                <span id="order">
-                &;np
-                </span>
-              </div>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
+                              </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                   Cumul des paiements réelle au 30-09-2023
                 </span> 
-                <i class="fas fa-filter"></i>
-                <span id="order">
-                &;np
-                </span>
-              </div>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
+                              </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                   Taux de réalisation physique de l'operation au 30-09-2023
                 </span> 
-                <i class="fas fa-filter"></i>
-                <span id="order">
-                &;np
-                </span>
-              </div>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
+                              </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                   Etat d'avancement
                 </span> 
-                <i class="fas fa-filter"></i>
-                <span id="order">
-                &;np
-                </span>
-              </div>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
+                              </div>
             </th>
             <th>
-              <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div class="th-info">
                 <span>
                  Contraintes de la réalisation
                 </span> 
-                <i class="fas fa-filter"></i>
-                <span id="order">
-                &;np
-                </span>
-              </div>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="20" height="60">
+                     <path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41zm255-105L177 64c-9.4-9.4-24.6-9.4-33.9 0L24 183c-15.1 15.1-4.4 41 17 41h238c21.4 0 32.1-25.9 17-41z" fill="white"/>
+                    </svg>
+                  </i>
+                              </div>
             </th>
           </tr>
         </thead>
@@ -446,8 +469,7 @@
           </tr>
         </tfoot>
       </table>
-      <input type="text" id="searchInput" placeholder="Search...">
-      <button id="getVisibleRows">Get Visible Rows</button>
+      
     </div>
 </body>
 <script type="text/javascript">
@@ -479,16 +501,17 @@
   }
 
   // Click event to sort the table when header is clicked
-  $('#opr-table th').on('click', function() {
-    var table = $(this).parents('table').eq(0);
-    var index = $(this).index();
-    var reverse = $(this).hasClass('asc');
+  $('#opr-table th div i').on('click', function() {
+    var head=$(this).parent().parent()
+    var table = head.parents('table').eq(0);
+    var index = head.index();
+    var reverse = head.hasClass('asc');
     
     sortTable(table, index, reverse);
     
     // Toggle the class for next click
     $('#opr-table th').removeClass('asc desc');
-    $(this).addClass(reverse ? 'desc' : 'asc');
+    head.addClass(reverse ? 'desc' : 'asc');
   }); 
 })
 $(document).ready(function(){

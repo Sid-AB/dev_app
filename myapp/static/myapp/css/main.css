@@ -40,7 +40,22 @@ body {
     position: relative;
     text-shadow: 0 1px 0 #000;  
   }
-  
+  .th-info
+  {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+  }
+  .th-info i
+  {
+    width: fit-content;
+    height: 40px;
+    font-size: 20px;
+  }
+  .th-info i:hover
+  {
+    scale: 1.2;
+  }
   th:after {
     background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
     content: '';
@@ -466,3 +481,60 @@ input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input
   display: block;
 }
   /**--  the end of this part --***/
+  /** search button in hrml css begin**/
+  .search-box{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+  }
+  .input-search{
+    height: 15px;
+    width: 50px;
+    border-style: none;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    outline: none;
+    border-radius: 25px;
+    transition: all .5s ease-in-out;
+    background-color: #6A64F1;
+    padding-right: 40px;
+    color:#fff;
+  }
+  .input-search::placeholder{
+    color:rgba(255,255,255,.5);
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 100;
+  }
+  .btn-search{
+    width: 50px;
+    height: 35px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px;
+    color:#ffffff ;
+    background-color:transparent;
+    pointer-events: painted;  
+  }
+  .btn-search:focus ~ .input-search{
+    width: 300px;
+    border-radius: 0px;
+    background-color: #6A64F1;
+    border-bottom:1px solid rgba(255,255,255,.5);
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  }
+  .input-search:focus{
+    width: 300px;
+    border-radius: 0px;
+    background-color: #6A64F1;
+    border-bottom:1px solid rgba(255,255,255,.5);
+    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  }
+  
+  /*-- end of css--*/
