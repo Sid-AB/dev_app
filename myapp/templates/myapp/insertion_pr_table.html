@@ -1,0 +1,334 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'myapp/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/fontawesome-free-5.15.4-web/css/all.min.css' %}">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+  <div class="info-aria">
+    <div>
+      <label for="sector" class="formbold-form-label"> Quelle est le Projet </label>
+      <div class="dropdown">
+        <button class="dropbtn">Selection Projet</button>
+        <div class="dropdown-content">
+            <a href="/projet/?nouvel=in">Creation Nouvelle Project</a>
+            <a href="/projet/?exist=in">Projet exister </a>
+        </div>
+      </div>
+    </div>
+    {% if exist %}
+      <div>
+        <label for="info-project" class="formbold-form-label"> Selection Projet </label>
+        <select name="list_prt" id="list_proj" class="formbold-form-input">
+          <option> Selection le projet </option>
+          {% for prjt in project %}
+          <option value="{{prjt.name}}">{{prjt}}</option>
+          {% endfor %}
+        </select>
+      <div>
+      <label for="info-project" class="formbold-form-label"> Le Projecr Selection Est : </label>
+      <input
+      type="text"
+      name="firstname"
+      placeholder="Libelle et Numrero de Projet"
+      id="PR"
+      class="formbold-form-input"
+       disabled/>
+      </div>
+    </div>
+     {% endif %}
+    {% if nouvel %}
+    <div>
+      <label for="sector" class="formbold-form-label"> Quelle sectore le Projet </label>
+    <select input="text" class="formbold-form-input">
+      <option>Selection le Sector de Projet</option>
+      <option>Media</option>
+      <option>Autre</option>
+    </select>
+    </div>
+  </div>
+  <div class="form-aria">
+    <form  method="POST" action="{% url 'proj_add' %}">
+      {% csrf_token %}
+      <div class="formbold-form-step-1 active">
+        <div class="formbold-input-flex">
+          <div>
+              <label for="Numero_Libelle" class="formbold-form-label"> Numero et Libellé d'indidualisation de Project </label>
+              <input
+              type="text"
+              name="libelle_pr"
+              placeholder=" Numero et Libellé d'indidualisation de Project"
+              id="Numero_Libelle"
+              class="formbold-form-input"
+              />
+          </div>
+          <div>
+              <label for="numindv" class="formbold-form-label"> N° d'individualisation </label>
+              <input
+              type="text"
+              name="Num-indv"
+              placeholder="N° d'individualisation"
+              id="numindv"
+              class="formbold-form-input"
+              />
+          </div>
+        </div>
+        <div class="formbold-input-flex">
+          <div>
+            <label for="AP_init" class="formbold-form-label"> 	
+              AP Actuelle (KDA)
+            </label>
+            <input
+            type="number"
+             step="0.01"
+            name="ap"
+            id="AP_act"
+            class="formbold-form-input"
+            />
+        </div>
+          <div>
+              <label for="cumules" class="formbold-form-label"> 	
+                Dépenses cumulées au date
+              </label>
+              <input
+              type="number"
+               step="0.01"
+              name="dp_cm"
+              id="cumules"
+              class="formbold-form-input"
+              />
+          </div>
+          <div>
+            <label for="PEC" class="formbold-form-label"> 	
+              PEC au date
+            </label>
+            <input
+            type="number"
+             step="0.01"
+            name="PEC"
+            id="PEC"
+            class="formbold-form-input"
+            />
+        </div>
+      </div>
+      <div>
+        <label for="dp_prev" class="formbold-form-label"> 	
+          Dépenses prévisionnelles pour date
+        </label>
+        <input
+        type="number"
+         step="0.01"
+        name="dp_prev"
+        id="dp_prev"
+        class="formbold-form-input"
+        />
+    </div>
+      </div>
+        <button class="formbold-btn">
+            Ajouter
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1675_1807)">
+            <path d="M10.7814 7.33312L7.20541 3.75712L8.14808 2.81445L13.3334 7.99979L8.14808 13.1851L7.20541 12.2425L10.7814 8.66645H2.66675V7.33312H10.7814Z" fill="white"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_1675_1807">
+            <rect width="16" height="16" fill="white"/>
+            </clipPath>
+            </defs>
+            </svg>
+        </button>
+      </div>
+  </form>
+  {% endif %}
+  <div>
+    <table>
+        <thead>
+          <tr >
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  N°
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  Libellé de l'opération 
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  N° d'individualisation
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  AP Actuelle (KDA)
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  Dépenses cumulées au type date
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  PEC au type date
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  Dépenses prévisionnelles pour type date
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
+            <td><strong>1</strong></td>
+            <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
+            <td>  NF5.751.2.262.035.24</td>
+            <td> 1 140 000 </td>
+            <td> 523 922 </td>
+            <td>  616 078 </td>
+            <td>  </td>
+          </tr>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
+            <td><strong>2</strong></td>
+            <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
+            <td>  NF5.751.2.262.035.24</td>
+            <td> 1 140 000 </td>
+            <td> 523 922 </td>
+            <td>  616 078 </td>
+            <td>  </td>
+          </tr>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
+            <td><strong>2</strong></td>
+            <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
+            <td>  NF5.751.2.262.035.24</td>
+            <td> 1 140 000 </td>
+            <td> 523 922 </td>
+            <td>  616 078 </td>
+            <td>  </td>
+          </tr>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
+            <td><strong>4</strong></td>
+            <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
+            <td>  NF5.751.2.262.035.24</td>
+            <td> 1 140 000 </td>
+            <td> 523 922 </td>
+            <td>  616 078 </td>
+            <td>  </td>
+          </tr>         
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
+            <td><strong>5</strong></td>
+            <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
+            <td>  NF5.751.2.262.035.24</td>
+            <td> 1 140 000 </td>
+            <td> 523 922 </td>
+            <td>  616 078 </td>
+            <td>  </td>
+          </tr>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
+            <td><strong>6</strong></td>
+            <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
+            <td>  NF5.751.2.262.035.24</td>
+            <td> 1 140 000 </td>
+            <td> 523 922 </td>
+            <td>  616 078 </td>
+            <td>  </td>
+          </tr>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
+            <td><strong>7</strong></td>
+            <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
+            <td>  NF5.751.2.262.035.24</td>
+            <td> 1 140 000 </td>
+            <td> 523 922 </td>
+            <td>  616 078 </td>
+            <td>  </td>
+          </tr>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
+            <td><strong>8</strong></td>
+            <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
+            <td>  NF5.751.2.262.035.24</td>
+            <td> 1 140 000 </td>
+            <td> 523 922 </td>
+            <td>  616 078 </td>
+            <td>  </td>
+          </tr>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
+            <td><strong>9</strong></td>
+            <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
+            <td>  NF5.751.2.262.035.24</td>
+            <td> 1 140 000 </td>
+            <td> 523 922 </td>
+            <td>  616 078 </td>
+            <td>  </td>
+          </tr>
+          {% for projet in list_projet %}
+          <tr class="click-row" data-href="{% url 'app_view' projet.id_project%}">
+          <td></td>
+          <td>{{ projet.Libelle }}</td>
+          <td>{{ projet.num_indiv }}</td>
+          <td>{{ projet.AP_Act }}</td>
+          <td>{{ projet.dp_cum }} </td>
+          <td>{{ projet.PEC }}</td>
+          <td>{{ projet.dp_prev }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr class="click-row">
+            <th colspan="5">pour les calcul</th>
+            <th>$667.90</th>
+            <th colspan="5">pour les calcul</th>
+            <th>$667.90</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+</body>
+<script type="text/javascript">
+  let startYear = 1800;
+  let endYear = new Date().getFullYear();
+  for (i = endYear; i > startYear; i--)
+  {
+    $('#yearpicker').append($('<option />').val(i).html(i));
+  }
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const rows = document.querySelectorAll("tr.click-row");
+  rows.forEach(row => {
+      row.addEventListener("click", function() {
+          const url = this.dataset.href;
+          window.location.href = url;
+      });
+  });
+});
+  </script>
+</html>
