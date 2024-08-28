@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from datetime import date
 from .models import APTEST
 from .models import project
@@ -90,6 +92,20 @@ def proj_add(request):
         print('success',etat.id_etat)
         project.objects.create(Libelle=libl,num_indiv=numindv,AP_Act=ap_act,dp_cum=dp_cml,PEC=pec,dp_prev=dp_prev,date_chng=current_date,etat_project=etat)
         return render(request,'myapp/insertion_pr_table.html',{'successs':'ajouter Projet','list_projet':proj})
+@csrf_exempt
+def proj_update(request):
+    if request.method == 'POST':
+        libl=request.POST.get('Libelle')
+        numindv=request.POST.get('num_indiv')
+        ap_act=request.POST.get('AP_Act')
+        dp_cml=request.POST.get('dp_cum')
+        pec=request.POST.get('PEC')
+        dp_prev=request.POST.get('dp_prev')
+        current_date = date.today()
+        etat=etat_project.objects.get(id_etat=0)
+        return JsonResponse({'status': 'success', 'message': 'Data received!'})
+    return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)
+        
 
         
         
