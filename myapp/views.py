@@ -105,6 +105,24 @@ def proj_update(request):
         etat=etat_project.objects.get(id_etat=0)
         return JsonResponse({'status': 'success', 'message': 'Data received!'})
     return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)
+@csrf_exempt
+def opr_update(request):
+    if request.method == 'POST':
+        id_libelle_op=request.POST.get('id_libelle_op')
+        num_op=request.POST.get('num_op')
+        object_vise_po=request.POST.get('object_vise_po')
+        notifcation_an_MF_op=request.POST.get('notifcation_an_MF_op')
+        indiv_an_op=request.POST.get('indiv_an_op')
+        AP_init_op=request.POST.get('AP_init_op')
+        AP_real_op=request.POST.get('AP_real_op')
+        cum_AP_eng_an_op=request.POST.get('cum_AP_eng_an_op')
+        cum_AP_pai_an_op=request.POST.get('cum_AP_pai_an_op')
+        taux_real_ph_an_op=request.POST.get('taux_real_ph_an_op')
+        date_cre_op=request.POST.get('date_cre_op')
+        current_date = date.today()
+        etat=etat_project.objects.get(id_etat=0)
+        return JsonResponse({'status': 'success', 'message': 'Data received!'})
+    return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)
         
 
         

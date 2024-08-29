@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{% static 'myapp/css/main.css' %}">
     <link rel="stylesheet" href="{% static 'myapp/fontawesome-free-5.15.4-web/css/all.min.css' %}">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'myapp/js/main.js' %}"></script>
     <title>Document</title>
 </head>
 <body>
@@ -156,11 +157,17 @@
       </div>
   </form>
   <hr>
-  <div class="search-box">
-    <button class="btn-search"><i class="fas fa-search"></i></button>
-    <input id="searchInput" type="text" class="input-search" placeholder="Rerchecher ...">
+  <div class="act-handle">
+    <div class="search-box">
+      <button class="btn-search"><i class="fas fa-search"></i></button>
+      <input id="searchInput" type="text" class="input-search" placeholder="Rerchecher ...">
+    </div>
+    <div>
+      <div id="act-btn">
+    
+      </div>
+    </div>
   </div>
-  <!--button id="getVisibleRows">Get Visible Rows</button-->
   <div>
     <table id="opr-table">
         <thead>
@@ -335,6 +342,7 @@
             <td></td> 
             <td></td>
             <td></td>
+            <td ><button class="edi button-34" onclick="permissionOP()"><i class="fas fa-edit"></button></i></td>
           </tr>
           <tr>
             <td><strong>showEasing</strong></td>
@@ -349,6 +357,7 @@
             <td></td> 
             <td></td>
             <td></td>
+            <td ><button class="edi button-34" onclick="permissionOP()"><i class="fas fa-edit"></button></i></td>
           </tr>
           <tr>
             <td><strong>hideSpeed</strong></td>
@@ -363,6 +372,7 @@
             <td></td> 
             <td></td>
             <td></td>
+            <td ><button class="edi button-34" onclick="permissionOP()"><i class="fas fa-edit"></button></i></td>
           </tr>
           <tr>
             <td><strong>hideEasing</strong></td>
@@ -377,6 +387,7 @@
             <td></td> 
             <td></td>
             <td></td>
+            <td ><button class="edi button-34" onclick="permissionOP()"><i class="fas fa-edit"></button></i></td>
           </tr>         
           <tr>
             <td><strong>width</strong></td>
@@ -391,6 +402,7 @@
             <td></td> 
             <td></td>
             <td></td>
+            <td ><button class="edi button-34" onclick="permissionOP()"><i class="fas fa-edit"></button></i></td>
           </tr>
           <tr>
             <td><strong>ellipsis</strong></td>
@@ -405,6 +417,7 @@
             <td></td> 
             <td></td>
             <td></td>
+            <td ><button class="edi button-34" onclick="permissionOP()"><i class="fas fa-edit"></button></i></td>
           </tr>
           <tr>
             <td><strong>title</strong></td>
@@ -419,6 +432,7 @@
             <td></td> 
             <td></td>
             <td></td>
+            <td ><button class="edi button-34" onclick="permissionOP()"><i class="fas fa-edit"></button></i></td>
           </tr>
           <tr>
             <td><strong>afterShow</strong></td>
@@ -433,6 +447,7 @@
             <td></td> 
             <td></td>
             <td></td>
+            <td ><button class="edi button-34" onclick="permissionOP()"><i class="fas fa-edit"></button></i></td>
           </tr>
           <tr>
             <td><strong>afterHide</strong></td>
@@ -447,6 +462,7 @@
             <td></td> 
             <td></td>
             <td></td>
+            <td ><button class="edi button-34" onclick="permissionOP()"><i class="fas fa-edit"></button></i></td>
           </tr>
           {% for op in opr_list %}
             <tr>
@@ -462,6 +478,7 @@
              <td>{{ op.cum_AP_pai_an_op}}</td> 
              <td>{{ op.taux_real_ph_an_op}}</td>
              <td>{{ op.date_cre_op}}</td>
+             <td ><button class="edi button-34" onclick="permissionOP()"><i class="fas fa-edit"></button></i></td>
             </tr>
            {% endfor %} 
         </tbody>
@@ -478,6 +495,7 @@
     </div>
 </body>
 <script type="text/javascript">
+  url='{% url "opr_update" %}'
   let startYear = 1800;
   let endYear = new Date().getFullYear();
   for (i = endYear; i > startYear; i--)
