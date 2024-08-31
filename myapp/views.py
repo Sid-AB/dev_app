@@ -7,6 +7,7 @@ from .models import APTEST
 from .models import project
 from .models import etat_project
 from .models import operation
+from django.core.paginator import Paginator
 # Create your views here.
 def app_view(request,id_projet):
     url =id_projet
@@ -16,8 +17,11 @@ def app_view(request,id_projet):
         proj=project.objects.get(id_project=url)
         
         operations = operation.objects.filter(id_project_id=proj.id_project)
+        pag=Paginator(operations,"3")
+        pag_nbr=request.GET.get('page')
+        pag_obj=pag.get_page(pag_nbr)
         print('t(this)',operations)
-        return render(request,'myapp/insertion_op_table.html',{'id_projet': url,'opr_list':operations})
+        return render(request,'myapp/insertion_op_table.html',{'id_projet': url,'opr_list':operations,'opr_pg':pag_obj})
 def add_op(request,id_projet):
     url =id_projet
     if request.method == 'POST':
@@ -71,7 +75,10 @@ def proj_add(request):
 #]
             
             print(lis_proj)
-            return render(request,'myapp/insertion_pr_table.html',{'exist':exist,'project':lis_proj,'list_projet':proj})
+            pgs=Paginator(lis_proj,"3")
+            pgs_nbr=request.GET.get('page')
+            pgs_lst=pgs.get_page(pgs_nbr)
+            return render(request,'myapp/insertion_pr_table.html',{'exist':exist,'project':lis_proj,'list_projet':proj,'list_prpg':pgs_lst})
         if nv:
             print('new project show forms')
             return render(request,'myapp/insertion_pr_table.html',{'nouvel':nv,'list_projet':proj})

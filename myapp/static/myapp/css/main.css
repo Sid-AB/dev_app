@@ -575,3 +575,39 @@ input.question:invalid ~ input[type="submit"], textarea.question:invalid ~ input
   word-break: break-word;
   border: 0;
 }
+/* paginator style **/
+.pagination {
+  display: flex; /* Align pagination links horizontally */
+  justify-content: center; /* Center pagination links */
+  margin: 20px 0; /* Add some spacing around pagination */
+  list-style-type: none; /* Remove default list style */
+  padding: 0; /* Remove default padding */
+}
+
+.pagination .step-links {
+  display: flex; /* Align step links horizontally */
+  gap: 10px; /* Add spacing between step links */
+}
+
+.pagination .step-links a, 
+.pagination .step-links span {
+  padding: 8px 12px; /* Add padding for clickable areas */
+  text-decoration: none; /* Remove underline from links */
+  color: #6A64F1; /* Set text color */
+  border: 1px solid #007bff; /* Add border */
+  border-radius: 4px; /* Add rounded corners */
+  transition: background-color 0.3s; /* Add transition effect */
+}
+
+.pagination .step-links a:hover {
+  background-color: #6A64F1; /* Change background on hover */
+  color: #fff; /* Change text color on hover */
+}
+
+.pagination .step-links .current {
+  background-color: #6A64F1; /* Background color for current page */
+  color: white; /* Text color for current page */
+  border: 1px solid #007bff; /* Border color for current page */
+  pointer-events: none; /* Disable click on current page */
+}
+/** end the paginator stye*/
